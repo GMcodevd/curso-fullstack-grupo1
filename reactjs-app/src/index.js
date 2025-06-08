@@ -11,20 +11,20 @@ import MutableComponent from './examples/MutableComponent';
 import HookExample from './examples/HookExample';
 import { ClassEffectComponentOld } from './examples/ClassEffectComponentOld';
 import { EffectComponent } from './examples/EffectComponent';
-
+import AdivinaComponent2 from './merlo-german-trabajo-reactjs/ejercicio1-adivinaComponent';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <EffectComponent/>
-    { /*
-    <ClassEffectComponentOld/>
-    <AdivinaComponent></AdivinaComponent>
-      <AdivinaComponent></AdivinaComponent>
-      <MutableComponent></MutableComponent>
-      <HookExample></HookExample>
-      <Footer></Footer>
-     */}
+    {/* <EffectComponent/> */}
+    {
+    //<ClassEffectComponentOld/>
+    //<AdivinaComponent></AdivinaComponent>
+     <AdivinaComponent2></AdivinaComponent2>       //Resolución de la primera actividad ReactJS
+     // <MutableComponent></MutableComponent>
+     // <HookExample></HookExample>
+     // <Footer></Footer>
+     }
   </React.StrictMode>
 );
 
