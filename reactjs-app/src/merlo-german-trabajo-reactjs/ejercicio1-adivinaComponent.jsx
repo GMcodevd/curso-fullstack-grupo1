@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PlayVideo from './ejercicio2-video';
 
 function AdivinaComponent2() {
     const [numero, setNumero] = useState(1);
@@ -6,7 +7,7 @@ function AdivinaComponent2() {
     const [result, setResult] = useState(false);
     const [intentos, setIntentos] = useState(0);
     const [win, setWin] = useState(0)
-    const[lose, setLose] = useState(0)
+    const [lose, setLose] = useState(0)
 
     const contador = () => {
         setIntentos(intentos + 1)       //función para contar intentos
@@ -79,6 +80,7 @@ function AdivinaComponent2() {
 
                 </>
             }
+            <PlayVideo />
         </div>
     );
 }

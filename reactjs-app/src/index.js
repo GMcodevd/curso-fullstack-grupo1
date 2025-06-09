@@ -20,7 +20,7 @@ root.render(
     {
     //<ClassEffectComponentOld/>
     //<AdivinaComponent></AdivinaComponent>
-     <AdivinaComponent2></AdivinaComponent2>       //Resolución de la primera actividad ReactJS
+    <AdivinaComponent2></AdivinaComponent2>       //Resolución de la primera actividad ReactJS
      // <MutableComponent></MutableComponent>
      // <HookExample></HookExample>
      // <Footer></Footer>
