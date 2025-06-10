@@ -80,7 +80,7 @@ function AdivinaComponent2() {
 
                 </>
             }
-            <PlayVideo />
+            <PlayVideo url= "https://www.youtube.com/watch?v=PaFHwTjy1yE"/>     {/* Agrego un video por props */}
         </div>
     );
 }

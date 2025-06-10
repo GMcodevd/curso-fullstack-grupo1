@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
-import ReactPlayer from 'react-player/youtube'
+import ReactPlayer from 'react-player/youtube'          //Permite reproducir videos de youtube desde el browser
 
-function PlayVideo() {
-    const [video, setVideo] = useState('');
-    const [urlTemporal, setUrlTemporal] = useState('');
+function PlayVideo(props) {
+    const [video, setVideo] = useState(props.url);          // Así carga un video predeterminado, pero el usuario puede cambiarlo
+    const [urlTemporal, setUrlTemporal] = useState('');     //Dos useState para evitar que el reproductor intente cargar cualquier entrada
     
     const cargarUrl = () =>{
         setVideo(urlTemporal)
     }
     return (
         <div >
-            <h3>Reproduce un video mientras juegas</h3>
+            <h3>Podés ingresar el enlace a otro video mientras juegas</h3>
+            <input type="text" placeholder='Ingresa la url de tu video' onChange={(e) => setUrlTemporal(e.target.value)} /> <br />
             <h5>Dirección ingresada: {urlTemporal}</h5>
-            <input type="text" placeholder='Ingresa la url de tu video' onChange={(e) => setUrlTemporal(e.target.value)} />
             <br /><br />
             <button onClick={cargarUrl} type='submit' value={video} > Cargar video</button>
 
             <ReactPlayer
             url={video}
-            playing
+            playing                 //reproducción automática
             width='100%'
             height='360px'
             controls
