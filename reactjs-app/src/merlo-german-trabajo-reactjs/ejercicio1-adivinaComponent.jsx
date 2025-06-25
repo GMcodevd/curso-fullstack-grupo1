@@ -103,13 +103,10 @@ const style = {
         
     },
     video: {
-        display: 'flex',
         flex: 1,
     },
     juego:{
-        display: 'flex',
         flex: 1,
-        flexDirection: 'column',
         maxWidth: '40%',
         marginLeft: '100px'
     }
