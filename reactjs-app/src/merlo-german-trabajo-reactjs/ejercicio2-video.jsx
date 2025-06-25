@@ -12,9 +12,11 @@ function PlayVideo(props) {
         <div >
             <h3>Podés ingresar el enlace a otro video mientras juegas</h3>
             <input type="text" placeholder='Ingresa la url de tu video' onChange={(e) => setUrlTemporal(e.target.value)} /> <br />
-            <h5>Dirección ingresada: {urlTemporal}</h5>
-            <br /><br />
+            <h5>Dirección ingresada: </h5>
+            <h5>{urlTemporal}</h5>
+            
             <button onClick={cargarUrl} type='submit' value={video} > Cargar video</button>
+            <br /> <br />
 
             <ReactPlayer
             url={video}

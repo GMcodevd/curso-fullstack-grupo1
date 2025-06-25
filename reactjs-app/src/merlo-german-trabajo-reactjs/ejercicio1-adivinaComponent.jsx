@@ -14,16 +14,16 @@ function AdivinaComponent2() {
     }
     const victorias = () => {
         setWin(win + 1);                //Para mostrar los aciertos
-                       
+
     }
-    const fallos = () =>{
+    const fallos = () => {
         setLose(lose + 1);              //Para mostrar los fallos
     }
-    const iniciarJuego = () =>{
-        if (numero < 1 || numero > 10){                             //Restringir el input de 1 a 10
+    const iniciarJuego = () => {
+        if (numero < 1 || numero > 10) {                             //Restringir el input de 1 a 10
             alert("Por favor, ingresa un número entre 1 y 10")
         }
-        else{
+        else {
             sortear();
         }
     }
@@ -34,62 +34,84 @@ function AdivinaComponent2() {
         setResult(true); //asigno valor por función
         contador(); // llamo a la función contador en cada sorteo
 
-        if (parseInt(numero) === parseInt(winner)){ // si hay acierto llamo al contador de victorias o al de derrotas
+        if (parseInt(numero) === parseInt(winner)) { // si hay acierto llamo al contador de victorias o al de derrotas
             victorias();
-        } 
-        else{
+        }
+        else {
             fallos();
         }
     }
-    
-    const esGanador = parseInt(numero) === sorteo;                          
+
+    const esGanador = parseInt(numero) === sorteo;
     const estiloResultado = esGanador ? style.ganador : style.perdedor;     //Para que los números también indiquen el acierto o error
 
     return (
-        <div style={{ margin: 30 }}>
-            {!result ?
-                <div>
-                    <h4>Adivina el Número del 1 al 10</h4>
-                    <input type='number' value={numero} onChange={(e) => setNumero(e.target.value)} min={1} max={10}></input>
-                    <br/><br />
-                    <button onClick={() => iniciarJuego()}>SORTEAR</button>
-                </div>
-                :
-                <>
-                    <hr />
-                    <h3>
-                        Usted eligió el<span style = {estiloResultado}> {numero} </span>
-                    </h3>
-                    <h3>
-                        Salió el número:<span style={estiloResultado}> {sorteo}</span>
-                        </h3>
-                    <h5>Número de intentos: {intentos}</h5>
-                    <h5>Aciertos: {win}</h5>
-                    <h5>Fallos: {lose}</h5>
+        <div style={style.videojuego}>
+            <div style={style.juego}>
+                {!result ?
                     <div>
-                        {sorteo === numero ? 
-                        <h3 style = {style.ganador}>"Felicitaciones!! Has Ganado!"</h3> 
-                    :
-                        <h3 style = {style.perdedor}>"Intento fallido... Siga participando"</h3>}
+                        <h4>Adivina el Número del 1 al 10</h4>
+                        <input type='number' value={numero} onChange={(e) => setNumero(e.target.value)} min={1} max={10}></input>
+                        <br /><br />
+                        <button onClick={() => iniciarJuego()}>SORTEAR</button>
                     </div>
-                    <br />
-                    <button onClick={() => {
-                        setResult(false)
-                        setNumero(1)
-                    }} >Volver a jugar</button>
+                    :
+                    <>
+                        <hr />
+                        <h3>
+                            Usted eligió el<span style={estiloResultado}> {numero} </span>
+                        </h3>
+                        <h3>
+                            Salió el número:<span style={estiloResultado}> {sorteo}</span>
+                        </h3>
+                        <h5>Número de intentos: {intentos}</h5>
+                        <h5>Aciertos: {win}</h5>
+                        <h5>Fallos: {lose}</h5>
+                        <div>
+                            {sorteo === numero ?
+                                <h3 style={style.ganador}>"Felicitaciones!! Has Ganado!"</h3>
+                                :
+                                <h3 style={style.perdedor}>"Intento fallido... Siga participando"</h3>}
+                        </div>
+                        <br />
+                        <button style={{width: '80px'}} onClick={() => {
+                            setResult(false)
+                            setNumero(1)
+                        }} >Volver a jugar</button>
 
-                </>
-            }
-            <PlayVideo url= "https://www.youtube.com/watch?v=PaFHwTjy1yE"/>     {/* Agrego un video por props */}
+                    </>
+                }
+            </div>
+            <div style={style.video}>
+                <PlayVideo url="https://www.youtube.com/watch?v=PaFHwTjy1yE" />     {/* Agrego un video por props */}
+            </div>
         </div>
     );
 }
-const style={
-    ganador:{
+const style = {
+    ganador: {
         color: "green"
     },
-    perdedor:{
+    perdedor: {
         color: "red"
+    },
+    videojuego: {
+        margin: 30,
+        display: 'flex',
+        gap: '50px',
+        backgroundColor: '#eee'
+        
+    },
+    video: {
+        display: 'flex',
+        flex: 1,
+    },
+    juego:{
+        display: 'flex',
+        flex: 1,
+        flexDirection: 'column',
+        maxWidth: '40%',
+        marginLeft: '100px'
     }
 }
 
